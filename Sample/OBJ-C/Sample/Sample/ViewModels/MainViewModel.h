@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "Service.h"
 
-@interface MainViewModel : BaseViewModel<Service *> <IBaseViewModel>
+@interface MainViewModel : BaseViewModel<Service *>
 
-@property (strong, nonatomic) NSString *helloWorld;
+@property (strong, nonatomic, nullable) NSString *helloWorld;
 
 
 @end
