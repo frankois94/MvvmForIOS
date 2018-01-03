@@ -30,7 +30,5 @@ class MainView : BaseView<MainViewModel> {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
 
