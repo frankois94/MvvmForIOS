@@ -57,20 +57,9 @@
     return (result);
 }
 
-/*
- * We will use the NSNotificationCenter for property change event
- */
-- (void)updateProperty:(NSString *)name
-{
-    id valueToSend = [self getValueForProperty:name];
-    NSLog(@"Updating property %@", name);
-    [self setValue:valueToSend forKey:name];
-}
-
 - (void)dealloc
 {
     
 }
-
 
 @end

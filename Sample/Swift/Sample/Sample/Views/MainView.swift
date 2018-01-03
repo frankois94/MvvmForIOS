@@ -17,7 +17,7 @@ class MainView : BaseView<MainViewModel> {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.bindProperty("helloWorld") { (data) in
-            print("update helloWorld ", data);
+            print("update helloWorld", data);
             self.label.text = data as? String;
         };
     }
