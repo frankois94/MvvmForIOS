@@ -12,6 +12,6 @@
 
 @interface Service : BaseServices
 
-@property (nonatomic, strong, readonly)NSObject<IData> *data;
+@property (nonatomic, strong, readonly)id<IData> data;
 
 @end
