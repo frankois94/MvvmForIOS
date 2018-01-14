@@ -5,9 +5,9 @@ Also I'm using generics for linking the type of ViewModel to the View.
 ## How to install
 
 ###### CocoaPod
+##### pod 'MvvmForIOS'
 
 ###### Carthage
-Create a Cartfile with inside 
 ##### github "frankois944/MvvmForIOS" ~> 0.1
 
 ## How to use it
