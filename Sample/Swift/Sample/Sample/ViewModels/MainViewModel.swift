@@ -8,14 +8,18 @@
 
 import Foundation
 
-@objcMembers class MainViewModel: BaseViewModel<Service> {
+class MainViewModel: BaseViewModel<Service> {
     
     override func start(_ parameters: NSObject?) {
         _helloWorld = service?.data.getData();
+        
+        service?.showViewModel(MainViewModel.self, withParameters: nil)
+        
+        service?.closeCurrentViewModel()
     }
     
     private var _helloWorld:String?
-    dynamic var helloWorld:String?
+    @objc dynamic var helloWorld:String?
     {
         get
         {

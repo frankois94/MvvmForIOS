@@ -1,5 +1,6 @@
 # MvvmForIOS
 MvvmForIOS is a lightweight framework for using Mvvm pattern on iOS. It was written in Obj-C but can be also used with Swift 4. This Frameworks doesn't include dependencies (like reactivekit/Bond/...), so the binding way is very simple by using KVO.
+Also I'm using generics for linking the type of ViewModel to the View.
 
 ## How to install
 
@@ -60,16 +61,17 @@ class MainView : BaseView<MainViewModel> //MainViewModel is the viewModel  {
 ###### ViewModels
 ```Swift
 //objcMembers is for KVO and Selector
-//you can remove objcMembers and place objc at the attribute you want to bind
+//you can remove @objcMembers and place @objc at the attribute you want to bind
 @objcMembers class MainViewModel: BaseViewModel<Service> //Service can also be BaseServices if you don't want to follow this way {
     
+    //The viewModel is ready to use
     override func start(_ parameters: NSObject?) {
         _helloWorld = service?.data.getData();
     }
     
     private var _helloWorld:String?
     //dynamic is for KVO (http://skyefreeman.io/programming/2017/06/28/kvo-in-ios11.html)
-    //it require @objc or @objcMembers
+    //it requires @objc or @objcMembers
     dynamic var helloWorld:String?
     {
         get
@@ -140,7 +142,7 @@ Look at the sample, it's just the same thing as Swift
 ## Navigation
 
 #### Important ####
-All navigation between *Views* are made in the ViewModels, it require some specifics naming between the View + (Storyboard) and the corresponding ViewModel.
+All navigation between *Views* are made in the ViewModels, it requires some specifics naming between the View + (Storyboard) and the corresponding ViewModel.
 
 **For the ViewModel *testViewModel*, the View _must_ be named *testView* and the storyboard must be named *test*.**
 

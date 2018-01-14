@@ -23,6 +23,10 @@
 - (void)startViewModel:(NSObject *)parameters
 {
     _helloWorld = [[[self service] data] getData];
+    
+    [[self service]showViewModel:[MainViewModel class] withParameters:nil];
+    
+    [[self service] closeCurrentViewModel];
 }
 
 - (NSString *)helloWorld
