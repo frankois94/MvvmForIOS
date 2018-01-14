@@ -15,7 +15,7 @@ Add a Bridging Header and add inside
 \#import <MvvmForIOS/MvvmForIOS.h>
 
 ###### 2 Carthage
-github "frankois944/MvvmForIOS" ~> 0.1
+github "frankois944/MvvmForIOS"
 
 ## How to use it
 There are two samples who explain how to implement the Framework (Obj-C and Swift).
