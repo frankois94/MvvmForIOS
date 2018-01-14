@@ -5,9 +5,11 @@ Also I'm using generics for linking the type of ViewModel to the View.
 ## How to install
 
 ###### CocoaPod
-_working_
+
+
 ###### Carthage
-_working_
+Create a Cartfile wit inside 
+github "frankois944/MvvmForIOS" ~> 0.1
 
 ## How to use it
 There are two samples who explain how to implement the Framework (Obj-C and Swift).
@@ -152,7 +154,7 @@ The application won't work if you do not respect this rule.
 
 In the ViewModel just call :
 
-Swift:
+Swift
 ```Swift
 //Push
     service?.showViewModel(NextViewModel.self)
@@ -169,8 +171,17 @@ Obj-C
     [[self service] closeCurrentViewModel];
 ```
 
+## TO-DO
+
+- [ ] Implement ModalView in navigation
+- [ ] Add callback navigation completion
+- [ ] Service Locator (removing ViewModel dependencies)
+- [ ] Navigation customisation
+- [ ] Better binding
+- [ ] And More ...
 
 
+## Release Note
 
-
-
+### 0.1
+First implementation
