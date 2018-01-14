@@ -38,7 +38,7 @@ class MainView : BaseView<MainViewModel> //MainViewModel is the viewModel  {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        //Creating binding data between ViewModel to View (OneWay)
+        //Creating binding data from ViewModel to View (OneWay)
         self.bindProperty("helloWorld") { (data) in
             print("update helloWorld", data);
             self.label.text = data as? String;
@@ -60,6 +60,7 @@ class MainView : BaseView<MainViewModel> //MainViewModel is the viewModel  {
 ###### ViewModels
 ```Swift
 //objcMembers is for KVO and Selector
+//you can remove objcMembers and place objc at the attribute you want to bind
 @objcMembers class MainViewModel: BaseViewModel<Service> //Service can also be BaseServices if you don't want to follow this way {
     
     override func start(_ parameters: NSObject?) {
@@ -68,6 +69,7 @@ class MainView : BaseView<MainViewModel> //MainViewModel is the viewModel  {
     
     private var _helloWorld:String?
     //dynamic is for KVO (http://skyefreeman.io/programming/2017/06/28/kvo-in-ios11.html)
+    //it require @objc or @objcMembers
     dynamic var helloWorld:String?
     {
         get
