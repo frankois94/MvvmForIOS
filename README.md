@@ -4,11 +4,18 @@ Also I'm using generics for linking the type of ViewModel to the View.
 
 ## How to install
 
-###### CocoaPod
-##### pod 'MvvmForIOS'
+###### 1 CocoaPod
 
-###### Carthage
-##### github "frankois944/MvvmForIOS" ~> 0.1
+Create a podfile
+
+pod 'MvvmForIOS'
+
+Add a Bridging Header and add inside
+
+\#import <MvvmForIOS/MvvmForIOS.h>
+
+###### 2 Carthage
+github "frankois944/MvvmForIOS" ~> 0.1
 
 ## How to use it
 There are two samples who explain how to implement the Framework (Obj-C and Swift).
