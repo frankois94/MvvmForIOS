@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+typedef void(^onNavigationCompletion)(void);
+
 @class UIWindow;
 
 /*
@@ -28,16 +30,16 @@
  */
 - (void)showInitialViewModel:(nonnull Class)viewModelToShow;
 /*
- * Show a viewModel without parameters
+ * Show a viewModel without parameters and completion (optional)
  */
-- (void)showViewModel:(nonnull Class)viewModelToShow;
+- (void)showViewModel:(nonnull Class)viewModelToShow onCompletion:(onNavigationCompletion _Nullable)onCompletion;
 /*
- * Show a viewModel with parameters (optional)
+ * Show a viewModel with parameters (optional) and completion (optional)
  */
-- (void)showViewModel:(nonnull Class)viewModelToShow withParameters:(nullable id)userData;
+- (void)showViewModel:(nonnull Class)viewModelToShow withParameters:(nullable id)userData onCompletion:(onNavigationCompletion _Nullable)onCompletion;
 /*
- * Close the current ViewModel
+ * Close the current ViewModel and completion (optional)
  */
-- (void)closeCurrentViewModel;
+- (void)closeCurrentViewModelOnCompletion:(onNavigationCompletion _Nullable)onCompletion;
 
 @end

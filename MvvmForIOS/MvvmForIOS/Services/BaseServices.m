@@ -13,6 +13,7 @@
 
 @interface BaseServices ()
 {
+    UIViewController *_modalView;
     UINavigationController *_navController;
 }
 
@@ -84,25 +85,74 @@
     }
 }
 
-- (void)showViewModel:(nonnull Class)viewModelToShow
+#pragma mark - PUSH ModalViewModel
+
+- (void)showModalViewModel:(nonnull Class)viewModelToShow onCompletion:(nullable onNavigationCompletion)onCompletion
 {
-    [self showViewModel:viewModelToShow withParameters:nil];
+    [self showModalViewModel:viewModelToShow withParameters:nil onCompletion:onCompletion];
 }
 
-- (void)showViewModel:(nonnull Class)viewModelToShow withParameters:(nullable id)userData
+- (void)showModalViewModel:(nonnull Class)viewModelToShow withParameters:(nullable id)userData onCompletion:(onNavigationCompletion)onCompletion
+{
+    if (viewModelToShow)
+    {
+        //getting view
+        UIViewController *view = [self getView:viewModelToShow Andparameters:userData];
+        UIViewController *top = [_navController topViewController];
+        [top presentViewController:view animated:YES completion:onCompletion];
+        _modalView = view;
+        view = nil;
+    }
+}
+
+#pragma mark - PUSH ViewModel
+
+- (void)showViewModel:(nonnull Class)viewModelToShow onCompletion:(nullable onNavigationCompletion)onCompletion
+{
+    [self showViewModel:viewModelToShow withParameters:nil onCompletion:onCompletion];
+}
+
+- (void)showViewModel:(nonnull Class)viewModelToShow withParameters:(nullable id)userData onCompletion:(nullable onNavigationCompletion)onCompletion
 {
     if (viewModelToShow)
     {
         //getting view
         UIViewController *view = [self getView:viewModelToShow Andparameters:userData];
         [_navController pushViewController:view animated:YES];
+        [self pushVC:view animated:YES onCompletion:onCompletion];
         view = nil;
     }
 }
 
-- (void)closeCurrentViewModel
+- (void)pushVC:(UIViewController *)view animated:(BOOL)animated onCompletion:(onNavigationCompletion)onCompletion
 {
-    [_navController popViewControllerAnimated:YES];
+    [CATransaction begin];
+    [CATransaction setCompletionBlock:onCompletion];
+    [_navController pushViewController:view animated:animated];
+    [CATransaction commit];
+}
+
+#pragma mark - POP ViewModel
+
+- (void)closeCurrentViewModelOnCompletion:(onNavigationCompletion)onCompletion
+{
+    if (_modalView)
+    {
+        [_modalView dismissViewControllerAnimated:YES completion:onCompletion];
+    }
+    else
+    {
+        [self popCurrentViewWithAnimated:YES OnCompetion:onCompletion];
+    }
+    _modalView = nil;
+}
+
+- (void)popCurrentViewWithAnimated:(BOOL)animated OnCompetion:(onNavigationCompletion)completion
+{
+    [CATransaction begin];
+    [CATransaction setCompletionBlock:completion];
+    [_navController popViewControllerAnimated:animated];
+    [CATransaction commit];
 }
 
 @end
