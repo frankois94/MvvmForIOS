@@ -6,10 +6,9 @@ Also I'm using generics for linking the type of ViewModel to the View.
 
 ###### CocoaPod
 
-
 ###### Carthage
-Create a Cartfile wit inside 
-github "frankois944/MvvmForIOS" ~> 0.1
+Create a Cartfile with inside 
+##### github "frankois944/MvvmForIOS" ~> 0.1
 
 ## How to use it
 There are two samples who explain how to implement the Framework (Obj-C and Swift).
@@ -141,10 +140,74 @@ class MainData: NSObject {
 
 Look at the sample, it's just the same thing as Swift
 
+## Binding
+
+Currently, the Framework is using KVO.
+
+###### View
+Swift
+```Swift
+//From ViewModel to View
+self.bindProperty("helloWorld") { (data) in
+};
+
+//From View to ViewModel
+self.viewModel?.helloWorld = ...;
+
+```
+Obj-C
+```OBJc
+//From ViewModel to View
+[self bindProperty:@"helloWorld" onUpdate:^(NSString  * _Nonnull value) {
+}];
+//From View to ViewModel
+[[self viewModel] setHelloWorld:...];
+
+```
+
+###### ViewModel
+Swift
+```Swift
+private var _helloWorld:String?
+//@objc or @objcMembers + dynamic are mandatory for KVO in swift 4
+@objc dynamic var helloWorld:String?
+{
+    get
+    {
+        return (_helloWorld);
+    }
+    set
+    {
+        if (_helloWorld != newValue)
+        {
+            _helloWorld = newValue;
+        }
+    }
+}
+```
+Obj-C
+```OBJc
+@property (strong, nonatomic, nullable) NSString *helloWorld;
+@dynamic helloWorld;
+
+- (NSString *)helloWorld
+{
+    return (_helloWorld);
+}
+
+- (void)setHelloWorld:(NSString *)newValue
+{
+    if (![_helloWorld isEqualToString:newValue])
+    {
+        _helloWorld = newValue;
+    }
+}
+```
+
 ## Navigation
 
 #### Important ####
-All navigation between *Views* are made in the ViewModels, it requires some specifics naming between the View + (Storyboard) and the corresponding ViewModel.
+All navigation between *Views* are made in the ViewModels, it requires some specifics naming between the *View* + (Storyboard) and the corresponding *ViewModel*.
 
 **For the ViewModel *testViewModel*, the View _must_ be named *testView* and the storyboard must be named *test*.**
 
