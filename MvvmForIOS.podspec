@@ -25,6 +25,8 @@ Pod::Spec.new do |s|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = <<-DESC
+  Framework for using Mvvm Pattern in OBJ-C and Swift with iOS
+  Compatible Swift 4 and OBJ-C
                    DESC
 
   s.homepage     = "https://github.com/frankois944/MvvmForIOS"
