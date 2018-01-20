@@ -4,7 +4,7 @@ Also I'm using generics for linking the type of ViewModel to the View.
 
 ## How to install
 
-###### 1 CocoaPod
+##### 1 - CocoaPod
 
 Create a podfile
 
@@ -14,7 +14,7 @@ Add a Bridging Header and add inside
 
 \#import <MvvmForIOS/MvvmForIOS.h>
 
-###### 2 Carthage
+###### 2 - Carthage
 github "frankois944/MvvmForIOS"
 
 ## How to use it
@@ -258,5 +258,8 @@ First implementation
 
 ### 0.2
 Add Modal navigation
+
 Add callback navigation completion
+
+Updating Sample with new features
 
