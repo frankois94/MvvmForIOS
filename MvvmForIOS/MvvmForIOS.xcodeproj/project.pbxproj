@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7003D26B200E0453004E27B1 /* INavigationService.h in Headers */ = {isa = PBXBuildFile; fileRef = 7003D269200E0453004E27B1 /* INavigationService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7003D26F200E0469004E27B1 /* NavigationService.h in Headers */ = {isa = PBXBuildFile; fileRef = 7003D26D200E0469004E27B1 /* NavigationService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7003D270200E0469004E27B1 /* NavigationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 7003D26E200E0469004E27B1 /* NavigationService.m */; };
 		7045741C1FF570CE00AA0CDC /* BaseView.h in Headers */ = {isa = PBXBuildFile; fileRef = 704574141FF570CE00AA0CDC /* BaseView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7045741D1FF570CE00AA0CDC /* BaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 704574151FF570CE00AA0CDC /* BaseView.m */; };
 		7045741E1FF570CE00AA0CDC /* BaseServices.h in Headers */ = {isa = PBXBuildFile; fileRef = 704574171FF570CE00AA0CDC /* BaseServices.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -17,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7003D269200E0453004E27B1 /* INavigationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INavigationService.h; sourceTree = "<group>"; };
+		7003D26D200E0469004E27B1 /* NavigationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationService.h; sourceTree = "<group>"; };
+		7003D26E200E0469004E27B1 /* NavigationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavigationService.m; sourceTree = "<group>"; };
 		704574141FF570CE00AA0CDC /* BaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseView.h; sourceTree = "<group>"; };
 		704574151FF570CE00AA0CDC /* BaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseView.m; sourceTree = "<group>"; };
 		704574171FF570CE00AA0CDC /* BaseServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseServices.h; sourceTree = "<group>"; };
@@ -39,6 +45,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7003D268200E0443004E27B1 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				7003D269200E0453004E27B1 /* INavigationService.h */,
+				7003D26D200E0469004E27B1 /* NavigationService.h */,
+				7003D26E200E0469004E27B1 /* NavigationService.m */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
 		704574131FF570CE00AA0CDC /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -51,6 +67,7 @@
 		704574161FF570CE00AA0CDC /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				7003D268200E0443004E27B1 /* Navigation */,
 				704574171FF570CE00AA0CDC /* BaseServices.h */,
 				704574181FF570CE00AA0CDC /* BaseServices.m */,
 			);
@@ -102,6 +119,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				704574201FF570CE00AA0CDC /* BaseViewModel.h in Headers */,
+				7003D26F200E0469004E27B1 /* NavigationService.h in Headers */,
+				7003D26B200E0453004E27B1 /* INavigationService.h in Headers */,
 				7045741E1FF570CE00AA0CDC /* BaseServices.h in Headers */,
 				7045741C1FF570CE00AA0CDC /* BaseView.h in Headers */,
 				705F73CC1FDB210900CE73E5 /* MvvmForIOS.h in Headers */,
@@ -140,6 +159,7 @@
 				TargetAttributes = {
 					705F73C61FDB210900CE73E5 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -178,6 +198,7 @@
 			files = (
 				7045741F1FF570CE00AA0CDC /* BaseServices.m in Sources */,
 				704574211FF570CE00AA0CDC /* BaseViewModel.m in Sources */,
+				7003D270200E0469004E27B1 /* NavigationService.m in Sources */,
 				7045741D1FF570CE00AA0CDC /* BaseView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,6 +319,7 @@
 		705F73D01FDB210900CE73E5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -312,6 +334,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = fr.francoisdabonot.MvvmForIOS;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -319,6 +343,7 @@
 		705F73D11FDB210900CE73E5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -333,6 +358,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = fr.francoisdabonot.MvvmForIOS;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

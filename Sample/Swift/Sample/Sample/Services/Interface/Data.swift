@@ -9,6 +9,10 @@
 import Foundation
 
 class Data: IData {
+    required init() {
+        NSLog("INIT DATA");
+    }
+    
     func getData() -> String? {
         return (MainData.getData());
     }
@@ -17,5 +21,7 @@ class Data: IData {
         MainData.setData(newValue: newValue);
     }
     
-
+    func helloWorld() -> String {
+        return ("Helloworld");
+    }
 }

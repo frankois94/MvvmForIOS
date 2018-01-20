@@ -243,8 +243,8 @@ Obj-C
 
 ## TO-DO
 
-- [ ] Implement ModalView in navigation
-- [ ] Add callback navigation completion
+- [x] Implement ModalView in navigation
+- [x] Add callback navigation completion
 - [ ] Service Locator (removing ViewModel dependencies)
 - [ ] Navigation customisation
 - [ ] Better binding
@@ -255,3 +255,8 @@ Obj-C
 
 ### 0.1
 First implementation
+
+### 0.2
+Add Modal navigation
+Add callback navigation completion
+

@@ -118,13 +118,12 @@
     {
         //getting view
         UIViewController *view = [self getView:viewModelToShow Andparameters:userData];
-        [_navController pushViewController:view animated:YES];
         [self pushVC:view animated:YES onCompletion:onCompletion];
         view = nil;
     }
 }
 
-- (void)pushVC:(UIViewController *)view animated:(BOOL)animated onCompletion:(onNavigationCompletion)onCompletion
+- (void)pushVC:(UIViewController *)view animated:(BOOL)animated onCompletion:(nullable onNavigationCompletion)onCompletion
 {
     [CATransaction begin];
     [CATransaction setCompletionBlock:onCompletion];
@@ -134,7 +133,7 @@
 
 #pragma mark - POP ViewModel
 
-- (void)closeCurrentViewModelOnCompletion:(onNavigationCompletion)onCompletion
+- (void)closeCurrentViewModelOnCompletion:(nullable onNavigationCompletion)onCompletion
 {
     if (_modalView)
     {
@@ -147,7 +146,7 @@
     _modalView = nil;
 }
 
-- (void)popCurrentViewWithAnimated:(BOOL)animated OnCompetion:(onNavigationCompletion)completion
+- (void)popCurrentViewWithAnimated:(BOOL)animated OnCompetion:(nullable onNavigationCompletion)completion
 {
     [CATransaction begin];
     [CATransaction setCompletionBlock:completion];

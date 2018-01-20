@@ -34,6 +34,13 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (IBAction)pushSecondView:(id)sender {
+    [[self viewModel] pushViewModel];
+}
+
+- (IBAction)modalSecondView:(id)sender {
+    [[self viewModel] modalViewModel];
+}
 
 
 @end

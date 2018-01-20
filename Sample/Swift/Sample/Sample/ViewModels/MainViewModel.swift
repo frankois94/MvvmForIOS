@@ -12,10 +12,6 @@ class MainViewModel: BaseViewModel<Service> {
     
     override func start(_ parameters: NSObject?) {
         _helloWorld = service?.data.getData();
-        
-        service?.showViewModel(MainViewModel.self, withParameters: nil)
-        
-        service?.closeCurrentViewModel()
     }
     
     private var _helloWorld:String?
@@ -33,5 +29,20 @@ class MainViewModel: BaseViewModel<Service> {
                 service?.data.setData(newValue: newValue);
             }
         }
+    }
+    
+    
+    public func pushSecondView() -> Void {
+        NSLog("pushSecondView start!");
+        service?.showViewModel(SecondViewModel.self, onCompletion: {
+            NSLog("pushSecondView over!");
+        });
+    }
+    
+    public func modalSecondView() -> Void {
+        NSLog("modalSecondView start!");
+        service?.showModalViewModel(SecondViewModel.self, onCompletion: {
+            NSLog("modalSecondView over!");
+        });
     }
 }

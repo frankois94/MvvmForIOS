@@ -9,7 +9,7 @@
 import Foundation
 
 protocol IData {
-    
     func getData() -> String?;
     func setData(newValue:String?) -> Void;
+    func helloWorld() -> String;
 }

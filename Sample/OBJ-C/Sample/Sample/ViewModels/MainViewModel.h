@@ -13,5 +13,9 @@
 
 @property (strong, nonatomic, nullable) NSString *helloWorld;
 
+- (void)pushViewModel;
+- (void)modalViewModel;
+
+
 
 @end

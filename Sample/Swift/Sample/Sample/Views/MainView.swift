@@ -30,5 +30,11 @@ class MainView : BaseView<MainViewModel> {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    @IBAction func pushSecondView(_ sender: Any) {
+        self.viewModel?.pushSecondView();
+    }
+    @IBAction func modalSecondView(_ sender: Any) {
+        self.viewModel?.modalSecondView();
+    }
 }
 

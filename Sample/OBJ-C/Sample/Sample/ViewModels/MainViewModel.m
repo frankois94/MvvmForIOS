@@ -7,6 +7,7 @@
 //
 
 #import "MainViewModel.h"
+#import "SecondViewModel.h"
 
 @interface MainViewModel ()
 {
@@ -23,10 +24,6 @@
 - (void)startViewModel:(NSObject *)parameters
 {
     _helloWorld = [[[self service] data] getData];
-    
-    [[self service]showViewModel:[MainViewModel class] withParameters:nil];
-    
-    [[self service] closeCurrentViewModel];
 }
 
 - (NSString *)helloWorld
@@ -41,6 +38,22 @@
         _helloWorld = newValue;
         [[[self service] data] setData:newValue];
     }
+}
+
+- (void)pushViewModel
+{
+    NSLog(@"pushViewModel start!");
+    [[self service] showViewModel:[SecondViewModel class] onCompletion:^{
+        NSLog(@"pushViewModel over!");
+    }];
+}
+
+- (void)modalViewModel
+{
+    NSLog(@"modalViewModel start!");
+    [[self service] showModalViewModel:[SecondViewModel class] onCompletion:^{
+        NSLog(@"modalViewModel over!");
+    }];
 }
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "INavigationService.h"
 
 typedef void(^onNavigationCompletion)(void);
 
@@ -41,5 +42,15 @@ typedef void(^onNavigationCompletion)(void);
  * Close the current ViewModel and completion (optional)
  */
 - (void)closeCurrentViewModelOnCompletion:(onNavigationCompletion _Nullable)onCompletion;
+
+/*
+ * Show a modal viewModel with parameters (optional) and completion (optional)
+ */
+- (void)showModalViewModel:(nonnull Class)viewModelToShow onCompletion:(nullable onNavigationCompletion)onCompletion;
+
+/*
+ * Show a modal viewModel with parameters (optional) and completion (optional)
+ */
+- (void)showModalViewModel:(nonnull Class)viewModelToShow withParameters:(nullable id)userData onCompletion:(nullable onNavigationCompletion)onCompletion;
 
 @end

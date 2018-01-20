@@ -20,3 +20,5 @@ FOUNDATION_EXPORT const unsigned char MvvmForIOSVersionString[];
 #import <MvvmForIOS/BaseView.h>
 #import <MvvmForIOS/BaseViewModel.h>
 #import <MvvmForIOS/BaseServices.h>
+#import <MvvmForIOS/INavigationService.h>
+#import <MvvmForIOS/NavigationService.h>
