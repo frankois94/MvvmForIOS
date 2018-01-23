@@ -25,8 +25,11 @@ github "frankois944/MvvmForIOS"
 First implementation
 ### 0.2
 Add Modal navigation
+
 Add callback navigation completion
+
 Updating Sample with new features
+
 ### 0.3
 Add Service Locator
 ## How to use it
