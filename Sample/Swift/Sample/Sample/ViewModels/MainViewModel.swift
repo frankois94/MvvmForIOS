@@ -8,10 +8,10 @@
 
 import Foundation
 
-class MainViewModel: BaseViewModel<Service> {
+class MainViewModel: BaseViewModel<BaseServices> {
     
     override func start(_ parameters: NSObject?) {
-        _helloWorld = service?.data.getData();
+        _helloWorld = (Locator.get(IData.self) as! IData).getData();
     }
     
     private var _helloWorld:String?
@@ -26,7 +26,7 @@ class MainViewModel: BaseViewModel<Service> {
             if (_helloWorld != newValue)
             {
                 _helloWorld = newValue;
-                service?.data.setData(newValue: newValue);
+                (Locator.get(IData.self) as! IData).setData(newValue: newValue);
             }
         }
     }

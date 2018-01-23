@@ -17,6 +17,8 @@
 		704574201FF570CE00AA0CDC /* BaseViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 7045741A1FF570CE00AA0CDC /* BaseViewModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		704574211FF570CE00AA0CDC /* BaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7045741B1FF570CE00AA0CDC /* BaseViewModel.m */; };
 		705F73CC1FDB210900CE73E5 /* MvvmForIOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 705F73CA1FDB210900CE73E5 /* MvvmForIOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		70A64F11201664FF0052C62E /* Locator.h in Headers */ = {isa = PBXBuildFile; fileRef = 70A64F0F201664FF0052C62E /* Locator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		70A64F12201664FF0052C62E /* Locator.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A64F10201664FF0052C62E /* Locator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		705F73C71FDB210900CE73E5 /* MvvmForIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MvvmForIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		705F73CA1FDB210900CE73E5 /* MvvmForIOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MvvmForIOS.h; sourceTree = "<group>"; };
 		705F73CB1FDB210900CE73E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		70A64F0F201664FF0052C62E /* Locator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Locator.h; sourceTree = "<group>"; };
+		70A64F10201664FF0052C62E /* Locator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Locator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,8 @@
 				7003D268200E0443004E27B1 /* Navigation */,
 				704574171FF570CE00AA0CDC /* BaseServices.h */,
 				704574181FF570CE00AA0CDC /* BaseServices.m */,
+				70A64F0F201664FF0052C62E /* Locator.h */,
+				70A64F10201664FF0052C62E /* Locator.m */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -119,11 +125,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				704574201FF570CE00AA0CDC /* BaseViewModel.h in Headers */,
-				7003D26F200E0469004E27B1 /* NavigationService.h in Headers */,
 				7003D26B200E0453004E27B1 /* INavigationService.h in Headers */,
 				7045741E1FF570CE00AA0CDC /* BaseServices.h in Headers */,
+				70A64F11201664FF0052C62E /* Locator.h in Headers */,
 				7045741C1FF570CE00AA0CDC /* BaseView.h in Headers */,
 				705F73CC1FDB210900CE73E5 /* MvvmForIOS.h in Headers */,
+				7003D26F200E0469004E27B1 /* NavigationService.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,6 +207,7 @@
 				704574211FF570CE00AA0CDC /* BaseViewModel.m in Sources */,
 				7003D270200E0469004E27B1 /* NavigationService.m in Sources */,
 				7045741D1FF570CE00AA0CDC /* BaseView.m in Sources */,
+				70A64F12201664FF0052C62E /* Locator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

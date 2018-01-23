@@ -22,7 +22,7 @@ typedef void(^refreshPropertyBlock)(_Nonnull id value);
  * Contains binding methods and other usefull tools
  * Use Generic for specify the type of the viewModel
  */
-@interface BaseView<__covariant ObjectType> : UIViewController <IBaseView>
+@interface BaseView<ObjectType> : UIViewController <IBaseView>
 
 @property (nonatomic, weak, readwrite) ObjectType _Nullable viewModel;
 

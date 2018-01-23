@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol IData {
+@objc protocol IData {
     func getData() -> String?;
     func setData(newValue:String?) -> Void;
     func helloWorld() -> String;

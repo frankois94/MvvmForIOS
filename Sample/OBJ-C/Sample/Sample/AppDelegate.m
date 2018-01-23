@@ -7,12 +7,12 @@
 //
 
 #import "AppDelegate.h"
-#import "Service.h"
 #import "MainViewModel.h"
+#import "Data.h"
 
 @interface AppDelegate ()
 
-@property (nonatomic, strong)Service *service;
+@property (nonatomic, strong)BaseServices *service;
 
 @end
 
@@ -21,8 +21,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    [Locator save:[Data new]];
+    
     _window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
-    _service = [[Service alloc]initWithWindow:_window];
+    _service = [[BaseServices alloc]initWithWindow:_window];
     [_service showInitialViewModel:[MainViewModel class]];
     
     // Override point for customization after application launch.

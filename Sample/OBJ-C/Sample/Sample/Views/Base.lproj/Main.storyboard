@@ -40,7 +40,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="textfieldChange:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="beN-IY-vH4"/>
+                                    <action selector="textfieldChange:" destination="BYZ-38-t0r" eventType="editingChanged" id="Er5-xC-HlG"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vfv-az-gUv">

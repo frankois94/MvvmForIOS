@@ -13,14 +13,15 @@ import MvvmForIOS
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var service: Service?
+    var service: BaseServices?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        Locator.save(Data());
         
         window = UIWindow(frame: UIScreen.main.bounds);
-        service = Service(window: window!);
+        service = BaseServices(window: window!);
         service?.showInitialViewModel(MainViewModel.self);
         return true
     }

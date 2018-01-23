@@ -8,6 +8,7 @@
 
 #import "MainViewModel.h"
 #import "SecondViewModel.h"
+#import "IData.h"
 
 @interface MainViewModel ()
 {
@@ -23,7 +24,7 @@
 
 - (void)startViewModel:(NSObject *)parameters
 {
-    _helloWorld = [[[self service] data] getData];
+    _helloWorld = [[Locator get:@protocol(IData)] getData];
 }
 
 - (NSString *)helloWorld
@@ -36,7 +37,7 @@
     if (![_helloWorld isEqualToString:newValue])
     {
         _helloWorld = newValue;
-        [[[self service] data] setData:newValue];
+        [[Locator get:@protocol(IData)] setData:newValue];
     }
 }
 

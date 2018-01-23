@@ -20,7 +20,6 @@
 		70BA8F5B201344D000B484C3 /* Second.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70BA8F5A201344D000B484C3 /* Second.storyboard */; };
 		70BA8F5E201344EB00B484C3 /* SecondViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 70BA8F5D201344EB00B484C3 /* SecondViewModel.m */; };
 		70EDD43E1FFD6EA50030BC94 /* MainViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 70EDD43D1FFD6EA50030BC94 /* MainViewModel.m */; };
-		70EDD4411FFD6EB20030BC94 /* Service.m in Sources */ = {isa = PBXBuildFile; fileRef = 70EDD4401FFD6EB20030BC94 /* Service.m */; };
 		70EDD4441FFD6EBB0030BC94 /* MainData.m in Sources */ = {isa = PBXBuildFile; fileRef = 70EDD4431FFD6EBB0030BC94 /* MainData.m */; };
 		70EDD4481FFD6ED30030BC94 /* Data.m in Sources */ = {isa = PBXBuildFile; fileRef = 70EDD4471FFD6ED30030BC94 /* Data.m */; };
 /* End PBXBuildFile section */
@@ -71,8 +70,6 @@
 		70BA8F5D201344EB00B484C3 /* SecondViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewModel.m; sourceTree = "<group>"; };
 		70EDD43C1FFD6EA50030BC94 /* MainViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewModel.h; sourceTree = "<group>"; };
 		70EDD43D1FFD6EA50030BC94 /* MainViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewModel.m; sourceTree = "<group>"; };
-		70EDD43F1FFD6EB20030BC94 /* Service.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Service.h; sourceTree = "<group>"; };
-		70EDD4401FFD6EB20030BC94 /* Service.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Service.m; sourceTree = "<group>"; };
 		70EDD4421FFD6EBB0030BC94 /* MainData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainData.h; sourceTree = "<group>"; };
 		70EDD4431FFD6EBB0030BC94 /* MainData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainData.m; sourceTree = "<group>"; };
 		70EDD4461FFD6ED30030BC94 /* Data.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Data.h; sourceTree = "<group>"; };
@@ -172,8 +169,6 @@
 			isa = PBXGroup;
 			children = (
 				70EDD4451FFD6EBF0030BC94 /* Interface */,
-				70EDD43F1FFD6EB20030BC94 /* Service.h */,
-				70EDD4401FFD6EB20030BC94 /* Service.m */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -301,7 +296,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				70EDD4411FFD6EB20030BC94 /* Service.m in Sources */,
 				702E23D51FFD540D00A1F365 /* MainView.m in Sources */,
 				70BA8F5E201344EB00B484C3 /* SecondViewModel.m in Sources */,
 				70EDD4441FFD6EBB0030BC94 /* MainData.m in Sources */,

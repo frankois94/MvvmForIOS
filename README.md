@@ -2,6 +2,8 @@
 MvvmForIOS is a lightweight framework for using Mvvm pattern on iOS. It was written in Obj-C but can be also used with Swift 4. This Frameworks doesn't include dependencies (like reactivekit/Bond/...), so the binding way is very simple by using KVO.
 Also I'm using generics for linking the type of ViewModel to the View.
 
+This tool is fully compatible with ObjC and swift 4, which means sometimes you need to use @objc keywords, also you can have some limitation about Swift Type or declaration.
+
 ## How to install
 
 ##### 1 - CocoaPod
@@ -10,13 +12,23 @@ Create a podfile
 
 pod 'MvvmForIOS'
 
-Add a Bridging Header and add inside
+Don't forget to add a Bridging Header with inside
 
 \#import <MvvmForIOS/MvvmForIOS.h>
 
-###### 2 - Carthage
+##### 2 - Carthage
 github "frankois944/MvvmForIOS"
 
+## Release Note
+
+### 0.1
+First implementation
+### 0.2
+Add Modal navigation
+Add callback navigation completion
+Updating Sample with new features
+### 0.3
+Add Service Locator
 ## How to use it
 There are two samples who explain how to implement the Framework (Obj-C and Swift).
 
@@ -25,12 +37,17 @@ There are two samples who explain how to implement the Framework (Obj-C and Swif
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var service: Service?
+    var service: BaseServices?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        // Override point for customization after 
+        application launch.
+
+        //Service Locator (saving)
+        Locator.save(Data());
+
         window = UIWindow(frame: UIScreen.main.bounds);
-        service = Service(window: window!);
+        service = BaseServices(window: window!);
         service?.showInitialViewModel(MainViewModel.self);
         return true
     }
@@ -70,11 +87,12 @@ class MainView : BaseView<MainViewModel> //MainViewModel is the viewModel  {
 ```Swift
 //objcMembers is for KVO and Selector
 //you can remove @objcMembers and place @objc at the attribute you want to bind
-@objcMembers class MainViewModel: BaseViewModel<Service> //Service can also be BaseServices if you don't want to follow this way {
+@objcMembers class MainViewModel: BaseViewModel<BaseServices> //Service can also be BaseServices if you don't want to follow this way {
     
     //The viewModel is ready to use
     override func start(_ parameters: NSObject?) {
-        _helloWorld = service?.data.getData();
+        //Service Locator (getting)
+        _helloWorld = (Locator.get(IData.self) as! IData).getData();
     }
     
     private var _helloWorld:String?
@@ -91,29 +109,18 @@ class MainView : BaseView<MainViewModel> //MainViewModel is the viewModel  {
             if (_helloWorld != newValue)
             {
                 _helloWorld = newValue;
-                service?.data.setData(newValue: newValue);
+                //Service Locator (getting)
+                (Locator.get(IData.self) as! IData).setData(newValue: newValue);
             }
         }
     }
 }
 ```
 
-###### Services
-```Swift
-//IoC Service, there are no service locator (yet)
-class Service: BaseServices {
-    var data:IData!;
-    
-    override init(window:UIWindow) {
-        super.init(window: window)
-        data = Data();
-    }
-}
-```
-
 ###### Interfaces
 ```Swift
-protocol IData {
+//@objc is for Service Locator
+@objc protocol IData {
     func getData() -> String?;
     func setData(newValue:String?) -> Void;
 }
@@ -211,6 +218,40 @@ Obj-C
 }
 ```
 
+## Service Locator (0.3)
+There is an optionnal service locator which can be used for using IoC.
+For now, we're using Protocol for matching the model and the interface, so the service class must implement the protocol.
+
+Swift
+```Swift
+//interface
+//@objc is mandatory
+@objc protocol IData {
+    func getData() -> String?;
+    func setData(newValue:String?) -> Void;
+    func helloWorld() -> String;
+}
+//store
+Locator.save(Data());
+//retrieve
+(Locator.get(IData.self) as! IData)
+```
+
+Obj-C
+```OBJc
+@protocol IData <NSObject>
+
+- (nullable NSString *)getData;
+- (void)setData:(nullable NSString *)newData;
+
+@end
+
+//store
+[Locator save:[Data new]];
+//retrieve
+[Locator get:@protocol(IData)] 
+```
+
 ## Navigation
 
 #### Important ####
@@ -245,21 +286,11 @@ Obj-C
 
 - [x] Implement ModalView in navigation
 - [x] Add callback navigation completion
-- [ ] Service Locator (removing ViewModel dependencies)
+- [x] Service Locator (removing ViewModel dependencies)
 - [ ] Navigation customisation
 - [ ] Better binding
 - [ ] And More ...
 
 
-## Release Note
 
-### 0.1
-First implementation
-
-### 0.2
-Add Modal navigation
-
-Add callback navigation completion
-
-Updating Sample with new features
 

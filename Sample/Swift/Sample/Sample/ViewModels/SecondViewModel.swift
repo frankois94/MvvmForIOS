@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SecondViewModel: BaseViewModel<Service>  {
+class SecondViewModel: BaseViewModel<BaseServices>  {
     
     func closeViewModel() -> Void {
         NSLog("closeViewModel start!")
