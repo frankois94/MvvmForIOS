@@ -33,8 +33,6 @@
  * Contains the service and binding properties
  * Use Generic for specify the type of the service
  */
-@interface BaseViewModel<ObjectType>  : NSObject<IBaseViewModel>
-
-@property (nonatomic, weak, readonly) ObjectType _Nullable service;
+@interface BaseViewModel : NSObject<IBaseViewModel>
 
 @end

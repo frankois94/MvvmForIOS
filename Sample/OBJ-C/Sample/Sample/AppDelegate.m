@@ -7,12 +7,13 @@
 //
 
 #import "AppDelegate.h"
+#import <MvvmForIOS/MvvmForIOS.h>
 #import "MainViewModel.h"
 #import "Data.h"
 
 @interface AppDelegate ()
 
-@property (nonatomic, strong)BaseServices *service;
+@property (nonatomic, strong)Setup *service;
 
 @end
 
@@ -24,8 +25,8 @@
     [Locator save:[Data new]];
     
     _window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
-    _service = [[BaseServices alloc]initWithWindow:_window];
-    [_service showInitialViewModel:[MainViewModel class]];
+    _service = [[Setup alloc]initWithWindow:_window];
+    [[Locator get:@protocol(INavigationService)] showInitialViewModel:[MainViewModel class]];
     
     // Override point for customization after application launch.
     return YES;

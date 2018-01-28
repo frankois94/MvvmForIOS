@@ -8,7 +8,7 @@
 
 #import <MvvmForIOS/MvvmForIOS.h>
 
-@interface SecondViewModel : BaseViewModel<BaseServices *>
+@interface SecondViewModel : BaseViewModel
 
 - (void)closeViewModel;
 

@@ -8,11 +8,11 @@
 
 import UIKit
 
-class SecondViewModel: BaseViewModel<BaseServices>  {
+class SecondViewModel: BaseViewModel  {
     
     func closeViewModel() -> Void {
         NSLog("closeViewModel start!")
-        self.service?.closeCurrentViewModel(onCompletion: {
+        (Locator.get(INavigationService.self) as! INavigationService).closeCurrentViewModel(onCompletion: {
             NSLog("closeViewModel over!")
         });
     }

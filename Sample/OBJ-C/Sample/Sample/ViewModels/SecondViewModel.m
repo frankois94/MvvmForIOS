@@ -13,7 +13,7 @@
 - (void)closeViewModel
 {
     NSLog(@"closeViewModel start!");
-    [[self service] closeCurrentViewModelOnCompletion:^{
+    [[Locator get:@protocol(INavigationService)] closeCurrentViewModelOnCompletion:^{
         NSLog(@"closeViewModel end!");
     }];
 }

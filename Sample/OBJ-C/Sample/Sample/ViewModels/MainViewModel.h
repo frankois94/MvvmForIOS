@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <MvvmForIOS/MvvmForIOS.h>
 
-@interface MainViewModel : BaseViewModel<BaseServices *>
+@interface MainViewModel : BaseViewModel
 
 @property (strong, nonatomic, nullable) NSString *helloWorld;
 

@@ -13,7 +13,7 @@ import MvvmForIOS
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var service: BaseServices?
+    var service: Setup?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -21,8 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Locator.save(Data());
         
         window = UIWindow(frame: UIScreen.main.bounds);
-        service = BaseServices(window: window!);
-        service?.showInitialViewModel(MainViewModel.self);
+        service = Setup(window: window!);
+        (Locator.get(INavigationService.self) as! INavigationService).showInitialViewModel(MainViewModel.self);
         return true
     }
 

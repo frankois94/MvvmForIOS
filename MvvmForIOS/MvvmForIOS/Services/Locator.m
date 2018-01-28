@@ -37,6 +37,17 @@
 
 + (void)save:(nonnull id)service
 {
+    //check and remove existing class in array
+    NSInteger idx = [[[Locator sharedLocator] array] indexOfObjectPassingTest:^BOOL(NSObject * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([obj isKindOfClass:[service class]])
+            return (true);
+        return (false);
+    }];
+    if (idx != NSNotFound)
+    {
+        NSLog(@"[MvvmForIOS]The instance %@ is already registered, remove the previous one", [service class]);
+        [[[Locator sharedLocator] array]removeObjectAtIndex:idx];
+    }
     [[[Locator sharedLocator] array] addObject:service];
 }
 
@@ -48,7 +59,10 @@
         return (false);
     }];
     if (idx == NSNotFound)
+    {
+        NSLog(@"[MvvmForIOS]The instance %@ is not registered, return nil", service);
         return (nil);
+    }
     return ([[Locator sharedLocator] array][idx]);
 }
 

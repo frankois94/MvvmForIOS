@@ -44,7 +44,7 @@
 - (void)pushViewModel
 {
     NSLog(@"pushViewModel start!");
-    [[self service] showViewModel:[SecondViewModel class] onCompletion:^{
+    [[Locator get:@protocol(INavigationService)] showViewModel:[SecondViewModel class] completion:^{
         NSLog(@"pushViewModel over!");
     }];
 }
@@ -52,7 +52,7 @@
 - (void)modalViewModel
 {
     NSLog(@"modalViewModel start!");
-    [[self service] showModalViewModel:[SecondViewModel class] onCompletion:^{
+    [[Locator get:@protocol(INavigationService)] showModalViewModel:[SecondViewModel class] completion:^{
         NSLog(@"modalViewModel over!");
     }];
 }

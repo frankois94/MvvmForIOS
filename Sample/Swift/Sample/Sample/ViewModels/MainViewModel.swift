@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MainViewModel: BaseViewModel<BaseServices> {
+class MainViewModel: BaseViewModel {
     
     override func start(_ parameters: NSObject?) {
         _helloWorld = (Locator.get(IData.self) as! IData).getData();
@@ -34,14 +34,14 @@ class MainViewModel: BaseViewModel<BaseServices> {
     
     public func pushSecondView() -> Void {
         NSLog("pushSecondView start!");
-        service?.showViewModel(SecondViewModel.self, onCompletion: {
+        (Locator.get(INavigationService.self) as! INavigationService).showViewModel(SecondViewModel.self, completion: {
             NSLog("pushSecondView over!");
         });
     }
     
     public func modalSecondView() -> Void {
         NSLog("modalSecondView start!");
-        service?.showModalViewModel(SecondViewModel.self, onCompletion: {
+        (Locator.get(INavigationService.self) as! INavigationService).showModalViewModel(SecondViewModel.self, completion: {
             NSLog("modalSecondView over!");
         });
     }
