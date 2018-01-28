@@ -32,6 +32,14 @@ Updating Sample with new features
 
 ### 0.3
 Add Service Locator
+
+### 0.3.1
+Navigation use now IoC with INavigationService
+
+Add new and rename methods for Navigation
+
+Updating samples and documentations
+
 ## How to use it
 There are two samples who explain how to implement the Framework (Obj-C and Swift).
 
@@ -40,7 +48,7 @@ There are two samples who explain how to implement the Framework (Obj-C and Swif
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var service: BaseServices?
+    var mvvmForIOS: Setup?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after 
@@ -48,10 +56,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         //Service Locator (saving)
         Locator.save(Data());
-
+        
         window = UIWindow(frame: UIScreen.main.bounds);
-        service = BaseServices(window: window!);
-        service?.showInitialViewModel(MainViewModel.self);
+        service = Setup(window: window!);
+        (Locator.get(INavigationService.self) as! INavigationService).showInitialViewModel(MainViewModel.self);
         return true
     }
     ...
@@ -113,7 +121,7 @@ class MainView : BaseView<MainViewModel> //MainViewModel is the viewModel  {
             {
                 _helloWorld = newValue;
                 //Service Locator (getting)
-                (Locator.get(IData.self) as! IData).setData(newValue: newValue);
+                (Locator.get(INavigationService.self) as! INavigationService).setData(newValue: newValue);
             }
         }
     }
@@ -271,10 +279,10 @@ In the ViewModel just call :
 Swift
 ```Swift
 //Push
-    service?.showViewModel(NextViewModel.self)
-    service?.showViewModel(NextViewModel.self, withParameters: nil)
+    (Locator.get(INavigationService.self) as! INavigationService).showViewModel(NextViewModel.self)
+    (Locator.get(INavigationService.self) as! INavigationService).showViewModel(NextViewModel.self, withParameters: nil)
 //Pop
-    service?.closeCurrentViewModel()
+    (Locator.get(INavigationService.self) as! INavigationService).closeCurrentViewModel()
 ```
 Obj-C
 ```OBJc
@@ -290,7 +298,7 @@ Obj-C
 - [x] Implement ModalView in navigation
 - [x] Add callback navigation completion
 - [x] Service Locator (removing ViewModel dependencies)
-- [ ] Navigation customisation
+- [x] Navigation customisation
 - [ ] Better binding
 - [ ] And More ...
 

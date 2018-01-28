@@ -13,7 +13,7 @@
 
 @interface AppDelegate ()
 
-@property (nonatomic, strong)Setup *service;
+@property (nonatomic, strong)Setup *mvvmForIOS;
 
 @end
 
@@ -25,7 +25,7 @@
     [Locator save:[Data new]];
     
     _window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
-    _service = [[Setup alloc]initWithWindow:_window];
+    _mvvmForIOS = [[Setup alloc]initWithWindow:_window];
     [[Locator get:@protocol(INavigationService)] showInitialViewModel:[MainViewModel class]];
     
     // Override point for customization after application launch.
