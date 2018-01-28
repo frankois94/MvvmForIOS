@@ -287,10 +287,10 @@ Swift
 Obj-C
 ```OBJc
 //Push
-    [[self service]showViewModel:[NextViewModel class]];
-    [[self service]showViewModel:[NextViewModel class] withParameters:nil];
+    [[Locator get:@protocol(INavigationService)]showViewModel:[NextViewModel class]];
+    [[Locator get:@protocol(INavigationService)]showViewModel:[NextViewModel class] withParameters:nil];
 //Pop
-    [[self service] closeCurrentViewModel];
+    [[Locator get:@protocol(INavigationService)]closeCurrentViewModel];
 ```
 
 ## TO-DO
